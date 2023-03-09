@@ -1,20 +1,27 @@
 import React from 'react';
+import './Button.css';
 
 interface PropsTypes {
     number: String | number,
-    color: String
+    color: String,
+    position: `${yAxis}-${xAxis}`;
 }
 
-function Button() {
-    function testingAgain() {
-        alert('aaaaaa');
-    }
+type yAxis = 'bottom' | 'top' | 'center';
+type xAxis = 'left' | 'right' | 'center';
 
+
+export function Button({
+    number,
+    color,
+    position
+} : PropsTypes) {
+
+    
     return(
-        <div onClick={testingAgain}>
-            Testing
-        </div>
+        <button className={`${color} ${position}`}>
+            {number}
+        </button>
     );
 };
 
-export default Button;
